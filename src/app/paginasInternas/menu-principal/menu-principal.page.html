@@ -1,0 +1,98 @@
+<ion-header class="ion-no-border">
+  <ion-item lines="none">
+    <ion-avatar slot="end">
+      <img src="assets/profile.jpg">
+    </ion-avatar>
+    <ion-button fill="clear" color="light">
+      <ion-icon slot="icon-only" name="menu"></ion-icon>
+    </ion-button>
+  </ion-item>
+  <ion-item lines="none">
+    <div class="ion-padding-start ion-padding-bottom">
+      <ion-label>
+        <h2>Choose a Car</h2>
+      </ion-label>
+
+      <ion-row class="ion-align-items-center">
+        <ion-col size="10">
+          <ion-searchbar placeholder="Oman, Muscat" searchIcon="location-outline"></ion-searchbar>
+        </ion-col>
+        <ion-col size="2">
+          <ion-button color="light" fill="clear">
+            <ion-icon slot="icon-only" name="options-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+    </div>
+  </ion-item>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="ion-padding">
+
+    <ion-card>
+      <ion-card-header>
+        <ion-row class="ion-align-items-center">
+          <ion-col size="6">
+            <ion-badge color="warning" mode="ios">
+              <ion-icon name="star"></ion-icon>
+              25
+            </ion-badge>
+          </ion-col>
+          <ion-col size="6" class="ion-text-right">
+            <ion-card-subtitle color="danger">30</ion-card-subtitle>
+          </ion-col>
+        </ion-row>
+      </ion-card-header>
+      <ion-card-content>
+        <!--<ion-img src="https://www.pngonly.com/wp-content/uploads/2017/06/transparent-car-png-10207.png"></ion-img>-->
+        <ion-row>
+          <ion-col size="8" class="text-center">
+            <ion-card-title>ENTREGA</ion-card-title>
+            
+          </ion-col>
+          <ion-col size="4" class="ion-text-right">
+            <ion-button fill="clear" color="dark" size="large" routerLink="/details">
+              <ion-icon slot="icon-only" name="chevron-forward-circle-outline"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <ion-row class="ion-align-items-center">
+          <ion-col size="6">
+            <ion-badge color="warning" mode="ios">
+              <ion-icon name="star"></ion-icon>
+              25
+            </ion-badge>
+          </ion-col>
+          <ion-col size="6" class="ion-text-right">
+            <ion-card-subtitle color="danger">30</ion-card-subtitle>
+          </ion-col>
+        </ion-row>
+      </ion-card-header>
+      <ion-card-content>
+        <!--<ion-img src="https://www.pngonly.com/wp-content/uploads/2017/06/transparent-car-png-10207.png"></ion-img>-->
+        <ion-row>
+          <ion-col size="8" class="text-center">
+            <ion-card-title>RECOGER</ion-card-title>
+            
+          </ion-col>
+          <ion-col size="4" class="ion-text-right">
+            <ion-button fill="clear" color="dark" size="large" routerLink="/details">
+              <ion-icon slot="icon-only" name="chevron-forward-circle-outline"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+    
+  </div>
+</ion-content>
+
+<div class="ion-padding">
+  <ion-badge class="ion-text-center" color="danger" mode="ios">OXIGEM-2020</ion-badge>
+</div>

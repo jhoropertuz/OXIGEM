@@ -1,0 +1,7 @@
+{
+  "name": "OXIGEM_IONIC",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
