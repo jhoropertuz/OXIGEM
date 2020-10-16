@@ -1,9 +1,52 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
+
+<ion-content class="myview"  color="primary"  padding class="letsstart">
+
+
+
+
+  <ion-card class="text-center ion-align-items-center " style="margin-top: 20%; padding-top: 20px; padding-bottom: 20px;">
+  <ion-card-header class="text-center ion-align-items-center " style="width: 100%;">
+    <img src="assets\img\ilustraciones\celular-lista-card.svg"  class="text-center" style="width: 50%;">
+  </ion-card-header>
+    <ion-card-content>
+      
+      <ion-row>
+        <ion-col size="12" class="text-center">
+          <form [formGroup]="validations_form"  (ngSubmit)="onSubmitLogin(validations_form.value)">
+    
+            <ion-item>
+              <ion-label position="floating" color="primary">Email</ion-label>
+              <ion-input type="text" formControlName="email"></ion-input>
+            </ion-item>
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validation_messages.email">
+                <ion-text color="danger" style="display:block;float: none; width: 100%" class="error-message" *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
+                  <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                </ion-text>
+              </ng-container>
+            </div>
+            
+            <ion-item>
+              <ion-label position="floating" color="primary">Contraseña</ion-label>
+              <ion-input type="password" formControlName="password"></ion-input>
+            </ion-item>
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validation_messages.password">
+                <ion-text style="display:block;float:none;width:100%" *ngIf="validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)" class="error-message">
+                  <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                </ion-text>
+              </ng-container>
+            </div>
+        
+            <ion-button color="primary" style="margin-top: 50px;" class="submit-btn " expand="full" type="submit" [disabled]="!validations_form.valid">Log In</ion-button>
+          </form>
+          
+        </ion-col>
+       
+       
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
