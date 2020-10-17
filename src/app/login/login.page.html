@@ -1,11 +1,15 @@
 
+<div *ngIf="esperar" style="width: 100%; height: 100%; background: white;">
+  <img  src="assets\img\fondos\entrada.gif" style="margin-top: 40%;" alt="" >
+</div>
+    
 
-<ion-content class="myview"  color="primary"  padding class="letsstart">
+<ion-content class="myview" *ngIf="!esperar" color="primary"  padding class="letsstart">
 
 
+  
 
-
-  <ion-card class="text-center ion-align-items-center " style="margin-top: 20%; padding-top: 20px; padding-bottom: 20px;">
+  <ion-card  class="text-center ion-align-items-center " style="margin-top: 20%; padding-top: 20px; padding-bottom: 20px;">
   <ion-card-header class="text-center ion-align-items-center " style="width: 100%;">
     <img src="assets\img\ilustraciones\celular-lista-card.svg"  class="text-center" style="width: 50%;">
   </ion-card-header>
@@ -50,3 +54,4 @@
   </ion-card>
 
 </ion-content>
+

@@ -30,6 +30,14 @@ const routes: Routes = [
   {
     path: 'escaneo-qr-oxigem',
     loadChildren: () => import('./paginasInternas/escaneo-qr-oxigem/escaneo-qr-oxigem.module').then( m => m.EscaneoQrOxigemPageModule)
+  },
+  {
+    path: 'detalles-usuario',
+    loadChildren: () => import('./paginasInternas/detalles-usuario/detalles-usuario.module').then( m => m.DetallesUsuarioPageModule)
+  },
+  {
+    path: 'listado-oxigem',
+    loadChildren: () => import('./paginasInternas/listado-oxigem/listado-oxigem.module').then( m => m.ListadoOxigemPageModule)
   }
 ];
 

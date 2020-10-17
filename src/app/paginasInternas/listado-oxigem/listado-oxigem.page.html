@@ -1,0 +1,57 @@
+<ion-header class="ion-no-border"  >
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="chevron-back" defaultHref="menu-principal"></ion-back-button>
+    </ion-buttons>
+    <ion-icon name="search-outline"  slot="end" style="margin-right: 8% ;" ></ion-icon>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <div class="ion-padding">
+    <ion-item lines="none" (click)="irRuta('detalles-usuario')" >
+      <ion-icon name="calendar-outline" slot="start" style="background: #ed576b" ></ion-icon>
+      <ion-label>
+        <ion-label  >
+          <strong>Oxigem-2899</strong>  <br>
+          Retener : $40.000 <br>
+          <h6> 23-07-2020</h6><br>
+        </ion-label>
+      </ion-label>
+      <ion-icon name="chevron-forward" slot="end"></ion-icon>
+    </ion-item>
+    <ion-item lines="none"  (click)="irRuta('detalles-usuario')">
+      <ion-icon name="calendar-outline"  slot="start" style="background: #ed576b" ></ion-icon>
+      <ion-label >
+        <strong>Oxigem-2899</strong>  <br>
+        Deposito: $50.000<br>
+        <h6> 23-07-2020</h6> <br>
+      </ion-label>
+      <ion-icon name="chevron-forward" slot="end"></ion-icon>
+    </ion-item>
+    <ion-item lines="none"  (click)="irRuta('detalles-usuario')">
+      <ion-icon name="calendar-outline"  slot="start" style="background: #ed576b" ></ion-icon>
+      <ion-label >
+        <strong>Oxigem-2499</strong>  <br>
+        Deposito: $20.000<br>
+        <h6> 23-07-2020</h6> <br>
+      </ion-label>
+      <ion-icon name="chevron-forward" slot="end"></ion-icon>
+    </ion-item>
+
+    <!-- <h6>Pickup Location</h6>
+    <ion-item lines="none">
+      <ion-icon name="location-outline" slot="start"></ion-icon>
+      <ion-label>
+        <ion-input placeholder="Muscat"></ion-input>
+      </ion-label>
+      <ion-icon name="chevron-forward" slot="end"></ion-icon>
+    </ion-item> -->
+
+  </div>
+</ion-content>
+
+<!-- <div class="ion-padding">
+  <ion-badge color="danger" mode="ios">
+    Oxigem-2020
+  </ion-badge>
+</div> -->

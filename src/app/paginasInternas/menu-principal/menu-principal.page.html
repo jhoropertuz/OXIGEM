@@ -1,12 +1,13 @@
 <ion-header class="ion-no-border">
   <ion-item lines="none">
-    <ion-avatar slot="end">
+    <ion-avatar slot="end" style="margin-right: 10px ;">
       <img src="assets/profile.jpg">
     </ion-avatar>
-    <ion-button fill="clear" color="light">
+    <!-- <ion-button fill="clear" color="light">
       <ion-icon slot="icon-only" name="menu"></ion-icon>
-    </ion-button>
-    <ion-label>
+    </ion-button> -->
+    <ion-menu-button style="padding-left:0%; margin-left: 0%;" fill="clear" color="light"></ion-menu-button>
+    <ion-label  >
       <h2>Oxigem</h2>
     </ion-label>
   </ion-item>
@@ -14,11 +15,11 @@
       
           
           <div style="padding: 0%;">
-            <ion-button style=" border-radius: 50px;" fill="clear" color="dark" size="large" >
-                <img style="background-color: white; padding: 3px; border-radius: 40px;" src="assets/img/buscar.png" width="50px">
+            <ion-button   color="light" size="small" >
+                <img  src="assets\img\grupo.png" width="25px">
             </ion-button>
-            <ion-button style=" border-radius: 50%;" fill="clear" color="dark" size="large" >
-                <img style="background-color: white; padding: 3px; border-radius: 40px;" src="assets/img/tanque-de-oxigeno.png" width="50px">
+            <ion-button   color="light" size="small" (click)="irRuta('escaneo-qr-oxigem')"> 
+                <img src="assets\img\codigo-qr.png" width="25px"> 
             </ion-button>
           </div>
     
@@ -28,7 +29,7 @@
 <ion-content [fullscreen]="true">
   <div class="ion-padding">
 
-    <ion-card>
+    <ion-card (click)="irRuta('listado-oxigem')">
       <ion-card-header>
         <ion-row class="ion-align-items-center">
           <ion-col size="6">
@@ -46,7 +47,7 @@
         <ion-img src="assets\img\ilustraciones\carroCamino.svg" style="width: 50%;" ></ion-img>
         <ion-row>
           <ion-col size="12" class="text-center">
-            <ion-card-title><strong>ENTREGA</strong></ion-card-title>
+            <ion-card-title><strong>ENTREGAR</strong></ion-card-title>
             
           </ion-col>
           <!--
@@ -58,7 +59,7 @@
         </ion-row>
       </ion-card-content>
     </ion-card>
-    <ion-card>
+    <ion-card (click)="irRuta('listado-oxigem')">
       <ion-card-header>
         <ion-row class="ion-align-items-center">
           <ion-col size="6">

@@ -9,11 +9,10 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
  validations_form: FormGroup;
-
-  constructor(public formBuilder: FormBuilder, private router: Router) { }
-
+ esperar=true;
+constructor(public formBuilder: FormBuilder, private router: Router) { }
+   
   ngOnInit() {
-
     this.validations_form = this.formBuilder.group({
       email: new FormControl('', Validators.compose([
         Validators.required,
@@ -24,7 +23,11 @@ export class LoginPage implements OnInit {
         //,Validators.pattern('^(?=.*[a-zA-Z])[a-zA-Z0-9!$%@#£€*?&]+$')
       ]))
     });
-
+    
+    setTimeout(()=>{
+      this.esperar=false;
+    }, 3000);
+   
   }
 
   validation_messages = {

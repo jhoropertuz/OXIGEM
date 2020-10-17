@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-principal',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuPrincipalPage implements OnInit {
 
-  constructor() { }
+  constructor( public Router:Router) { }
 
   ngOnInit() {
+  }
+
+
+  irRuta(ruta){
+     this.Router.navigateByUrl(ruta);
   }
 
 }
