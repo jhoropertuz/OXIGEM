@@ -1,9 +1,86 @@
-<ion-header>
+
+
+
+
+<ion-header class="ion-no-border"  >
   <ion-toolbar>
-    <ion-title>escaneoQrOxigem</ion-title>
+    <ion-buttons >
+      <ion-back-button slot="start" icon="chevron-back" defaultHref="menu-principal"></ion-back-button>
+      
+    </ion-buttons>
+    
+    <ion-buttons slot="end" >
+      <ion-button size="small" (click)="cambiarEstado()" >
+        <ion-icon name="qr-code-outline" *ngIf="!leerQR" ></ion-icon>
+        <ion-icon name="list-outline"*ngIf="leerQR"></ion-icon>
+      </ion-button>
+      <ion-button  (click)="buscador()" size="small">
+        <ion-icon *ngIf="buscar" name="search-circle"></ion-icon>
+        <ion-icon *ngIf="!buscar" name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+    
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
 
+<ion-content [fullscreen]="true">
+  <ion-searchbar color="primary"  style="position: absolute; z-index: 100;" *ngIf="buscar" [ngClass]="{'animate__backInRight': buscarAnimacion, 'animate__backOutRight': !buscarAnimacion }" class="animate__animated  " ></ion-searchbar>
+  <div id="container" style="position: relative;"  [hidden]="!leerQR">
+    <!-- Shows our camera stream -->
+    <div [hidden]="!scanActive" style=" transform: translateY(-50%);top:50% ;z-index: 1;position: absolute;width: 100% ; padding-right: 13%; padding-left: 13%;">
+      <img src="../../assets/img/marco-qr_3.png" alt="" width="90%"  >
+    </div>
+    
+  <video #video [hidden]="!scanActive" id="video" width="90%" style="position: absolute; top: 0;left: 0;right: 0;bottom: 0;margin: auto;" >
+  </video>
+  
+  <!-- Used to render the camera stream images -->
+  <canvas #canvas hidden id="canvas"></canvas>
+  </div>
+  <div class="ion-padding" *ngIf="!leerQR">
+    <ion-item lines="none" (click)="irRuta('detalles-usuario')" >
+      <ion-icon name="calendar-outline" slot="start" style="background: #ed576b" ></ion-icon>
+      <ion-label>
+        <ion-label  >
+          <strong>Oxigem-2899</strong>  <br>
+          Retener : $40.000 <br>
+          <h6> 23-07-2020</h6><br>
+        </ion-label>
+      </ion-label>
+    </ion-item>
+    <ion-item lines="none"  (click)="irRuta('detalles-usuario')">
+      <ion-icon name="calendar-outline"  slot="start" style="background: #ed576b" ></ion-icon>
+      <ion-label >
+        <strong>Oxigem-2899</strong>  <br>
+        Deposito: $50.000<br>
+        <h6> 23-07-2020</h6> <br>
+      </ion-label>
+    </ion-item>
+    <ion-item lines="none"  (click)="irRuta('detalles-usuario')">
+      <ion-icon name="calendar-outline"  slot="start" style="background: #ed576b" ></ion-icon>
+      <ion-label >
+        <strong>Oxigem-2499</strong>  <br>
+        Deposito: $20.000<br>
+        <h6> 23-07-2020</h6> <br>
+      </ion-label>
+    </ion-item>
+
+    <!-- <h6>Pickup Location</h6>
+    <ion-item lines="none">
+      <ion-icon name="location-outline" slot="start"></ion-icon>
+      <ion-label>
+        <ion-input placeholder="Muscat"></ion-input>
+      </ion-label>
+      <ion-icon name="chevron-forward" slot="end"></ion-icon>
+    </ion-item> -->
+
+  </div>
 </ion-content>
+
+<!-- <div class="ion-padding">
+  <ion-badge color="danger" mode="ios">
+    Oxigem-2020
+  </ion-badge>
+</div> -->

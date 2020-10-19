@@ -3,10 +3,20 @@
     <ion-buttons slot="start">
       <ion-back-button icon="chevron-back" defaultHref="menu-principal"></ion-back-button>
     </ion-buttons>
-    <ion-icon name="search-outline"  slot="end" style="margin-right: 8% ;" ></ion-icon>
+    <ion-buttons slot="end" >
+      <ion-button size="small" (click)="irRuta('escaneo-qr-oxigem')" >
+        <ion-icon name="qr-code-outline"  ></ion-icon>
+      </ion-button>
+      <ion-button  (click)="buscador()" size="small" >
+        <ion-icon *ngIf="buscar" name="search-circle"></ion-icon>
+        <ion-icon *ngIf="!buscar" name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
+
+  <ion-searchbar color="primary"  style="position: absolute; z-index: 100;" *ngIf="buscar" [ngClass]="{'animate__backInRight': buscarAnimacion, 'animate__backOutRight': !buscarAnimacion }" class="animate__animated  " ></ion-searchbar>
   <div class="ion-padding">
     <ion-item lines="none" (click)="irRuta('detalles-usuario')" >
       <ion-icon name="calendar-outline" slot="start" style="background: #ed576b" ></ion-icon>

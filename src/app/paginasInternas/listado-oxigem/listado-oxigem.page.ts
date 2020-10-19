@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./listado-oxigem.page.scss'],
 })
 export class ListadoOxigemPage implements OnInit {
-
+  buscar=false;
+  buscarAnimacion=false;
   constructor(public Router:Router) { }
 
   ngOnInit() {
@@ -15,5 +16,18 @@ export class ListadoOxigemPage implements OnInit {
  
   irRuta(ruta){
     this.Router.navigateByUrl(ruta);
+  }
+
+  buscador(){
+    if(this.buscar){
+      this.buscarAnimacion=false;
+      setTimeout(() => {
+        this.buscar=false;
+      }, 900);
+    }else{
+      this.buscar=true;
+      this.buscarAnimacion=true;
+    }
+    
   }
 }
