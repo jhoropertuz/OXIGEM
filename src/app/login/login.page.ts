@@ -14,13 +14,9 @@ constructor(public formBuilder: FormBuilder, private router: Router) { }
    
   ngOnInit() {
     this.validations_form = this.formBuilder.group({
-      email: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
-      ])),
-      password: new FormControl('', Validators.compose([
+      identificacion: new FormControl('', Validators.compose([
         Validators.required
-        //,Validators.pattern('^(?=.*[a-zA-Z])[a-zA-Z0-9!$%@#£€*?&]+$')
+       /* , Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$') */
       ]))
     });
     
@@ -31,21 +27,14 @@ constructor(public formBuilder: FormBuilder, private router: Router) { }
   }
 
   validation_messages = {
-    'email': [
-      { type: 'required', message: 'Email es requerido.' },
-      { type: 'pattern', message: 'Email Invalido.' }
-    ],
-    'password': [
-      { type: 'required', message: 'Contraseña es requerida.' }
-     // ,{ type: 'pattern', message: 'Your password must contain uppercase, lowercase, special chars and number.' }
-    ],
+    'identificacion': [
+      { type: 'required', message: 'identificacion es requerida.' }
+    ]
   };
 
   onSubmitLogin(values){
-    
-    this.router.navigateByUrl("menu-principal"); // redirect page if login is successful
+    this.router.navigateByUrl("listado-oxigem/recoger"); 
   }
 
- 
 
 }

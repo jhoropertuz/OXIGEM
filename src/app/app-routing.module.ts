@@ -16,11 +16,11 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'entrega-oxigem',
+    path: 'entrega-oxigem/:id',
     loadChildren: () => import('./paginasInternas/entrega-oxigem/entrega-oxigem.module').then( m => m.EntregaOxigemPageModule)
   },
   {
-    path: 'recoger-oxigem',
+    path: 'recoger-oxigem/:id',
     loadChildren: () => import('./paginasInternas/recoger-oxigem/recoger-oxigem.module').then( m => m.RecogerOxigemPageModule)
   },
   {
@@ -32,11 +32,11 @@ const routes: Routes = [
     loadChildren: () => import('./paginasInternas/escaneo-qr-oxigem/escaneo-qr-oxigem.module').then( m => m.EscaneoQrOxigemPageModule)
   },
   {
-    path: 'detalles-usuario',
+    path: 'detalles-usuario/:id',
     loadChildren: () => import('./paginasInternas/detalles-usuario/detalles-usuario.module').then( m => m.DetallesUsuarioPageModule)
   },
   {
-    path: 'listado-oxigem',
+    path: 'listado-oxigem/:tipo',
     loadChildren: () => import('./paginasInternas/listado-oxigem/listado-oxigem.module').then( m => m.ListadoOxigemPageModule)
   }
 ];

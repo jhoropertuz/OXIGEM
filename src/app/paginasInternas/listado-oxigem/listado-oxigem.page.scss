@@ -35,17 +35,23 @@ ion-item {
     color: rgb(148, 148, 148);
     margin-bottom: 10px;
     ion-icon:first-of-type {
-        
         color: #FFFFFF;
         padding: 4px;
         border-radius: 12px;
     }
 
-    ion-icon:last-of-type {
-        background: #316dd0;
-        color: #FFFFFF;
-        padding: 4px;
-        border-radius: 12px;
-    }
+   
 
+}
+
+.ion-icon-a {
+    background: #31d039;
+    color: #FFFFFF;
+}
+
+.ion-icon-b {
+    background: #316dd0;
+    color: #FFFFFF;
+    padding: 4px;
+    border-radius: 12px;
 }

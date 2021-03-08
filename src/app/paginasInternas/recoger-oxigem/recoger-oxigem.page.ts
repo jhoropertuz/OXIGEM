@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewChild, AfterViewInit} from '@angular/core';
+import { FirmaComponent } from 'src/app/shareds/firma/firma.component';
 
 @Component({
   selector: 'app-recoger-oxigem',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecogerOxigemPage implements OnInit {
 
+  codigo="xxxx";
+  firmaBase64;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  recogido(){
+    alert("recogido");
+  }
+
+  firmaBase64Event($event){
+    this.firmaBase64=$event;
   }
 
 }

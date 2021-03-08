@@ -1,0 +1,7 @@
+<div style="width: 100%; margin: auto;text-align: center;" [ngClass]="classBorderCanvas">
+  <signature-pad style="width: 100%;" [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
+</div>
+<ion-button (click)="limpiarTablero()" expand="block" fill="clear" shape="round">
+  Limpiar
+</ion-button>
+

@@ -29,3 +29,14 @@
 .text-center{
     text-align: center;
 }
+
+.text-right{
+    text-align:right;
+}
+
+ion-toolbar {
+    --background: #316dd0;
+    color: #FFFFFF;
+    
+    border-radius: 0 0 20% 20%;
+}

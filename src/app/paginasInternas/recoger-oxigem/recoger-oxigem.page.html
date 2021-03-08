@@ -1,9 +1,37 @@
-<ion-header>
+<ion-header class="ion-no-border"  >
   <ion-toolbar>
-    <ion-title>recogerOxigem</ion-title>
+    <ion-title>Recoger {{codigo}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button slot="start" icon="chevron-back" defaultHref="listado-oxigem/recoger"></ion-back-button>
+    </ion-buttons>
+    
+    
+    
+    <ion-buttons slot="end" >
+      
+    </ion-buttons>
+    
+    
   </ion-toolbar>
 </ion-header>
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <p>Firma del cliente</p>
+        <app-firma (firmaBase64Event)="firmaBase64Event($event)"></app-firma>
+      </ion-col>
 
-<ion-content>
-
+      <ion-col size="12">
+        <img src="{{firmaBase64}}" />
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-button (click)="recogido()" expand="block"  shape="round" color="success" >
+           Recogido
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

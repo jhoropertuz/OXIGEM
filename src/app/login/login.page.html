@@ -4,7 +4,7 @@
 </div>
     
 
-<ion-content class="myview" *ngIf="!esperar" color="primary"  padding class="letsstart">
+<ion-content class="myview" *ngIf="!esperar"  padding class="letsstart">
 
 
   
@@ -20,18 +20,18 @@
           <form [formGroup]="validations_form"  (ngSubmit)="onSubmitLogin(validations_form.value)">
     
             <ion-item>
-              <ion-label position="floating" color="primary">Email</ion-label>
-              <ion-input type="text" formControlName="email"></ion-input>
+              <ion-label position="floating" color="primary">Identificación</ion-label>
+              <ion-input type="text" formControlName="identificacion"></ion-input>
             </ion-item>
             <div class="validation-errors">
-              <ng-container *ngFor="let validation of validation_messages.email">
-                <ion-text color="danger" style="display:block;float: none; width: 100%" class="error-message" *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
+              <ng-container *ngFor="let validation of validation_messages.identificacion">
+                <ion-text color="danger" style="display:block;float: none; width: 100%" class="error-message" *ngIf="validations_form.get('identificacion').hasError(validation.type) && (validations_form.get('identificacion').dirty || validations_form.get('identificacion').touched)">
                   <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
                 </ion-text>
               </ng-container>
             </div>
             
-            <ion-item>
+            <!-- <ion-item>
               <ion-label position="floating" color="primary">Contraseña</ion-label>
               <ion-input type="password" formControlName="password"></ion-input>
             </ion-item>
@@ -41,9 +41,9 @@
                   <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
                 </ion-text>
               </ng-container>
-            </div>
+            </div> -->
         
-            <ion-button color="primary" style="margin-top: 50px;" class="submit-btn " expand="full" type="submit" [disabled]="!validations_form.valid">Log In</ion-button>
+            <ion-button color="primary" style="margin-top: 50px;" class="submit-btn " expand="full" type="submit" [disabled]="!validations_form.valid">Ingresar</ion-button>
           </form>
           
         </ion-col>
