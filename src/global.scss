@@ -35,8 +35,16 @@
 }
 
 ion-toolbar {
-    --background: #316dd0;
+    --background: #003f7f;
     color: #FFFFFF;
     
     border-radius: 0 0 20% 20%;
 }
+
+
+.my-custom-class {
+    --background: #222;
+    --spinner-color: #fff;
+  
+    color: #fff;
+  }

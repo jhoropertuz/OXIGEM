@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { BaseService } from '../../service/base.service';
+import { SweetalertService } from '../../service/sweetalert.service';
 @Component({
   selector: 'app-listado-oxigem',
   templateUrl: './listado-oxigem.page.html',
@@ -14,7 +15,7 @@ export class ListadoOxigemPage implements OnInit {
   listado=[];
   listadoFilter=[];
   listadoTodos=[];
-  constructor(public Router:Router,private ActivatedRoute: ActivatedRoute) { }
+  constructor(public Router:Router,private ActivatedRoute: ActivatedRoute, public BaseService:BaseService,public Sweetalert:SweetalertService) { }
 
   ngOnInit() {
     this.listadoTipo=this.ActivatedRoute.snapshot.params.tipo;
@@ -39,7 +40,7 @@ export class ListadoOxigemPage implements OnInit {
       this.buscarAnimacion=false;
       setTimeout(() => {
         this.buscar=false;
-        this.ChangeSearchbar('');
+         this.ChangeSearchbar(''); 
       }, 900);
     }else{
       this.buscar=true;
@@ -53,28 +54,34 @@ export class ListadoOxigemPage implements OnInit {
 
   getListadoRecoger(){
     /* alert('cargar recoger'); */
-    this.listadoTodos=[
-      {codigo: 'OXIMED-12',cliente:'Jonathan Romero', retener:'50.000' , fchRecoger:'23-07-2020'},
-      {codigo: 'OXIMED-345',cliente:'Jonathan Romero', retener:'50.000' , fchRecoger:'23-07-2020'},
-      {codigo: 'OXIMED-125',cliente:'Jonathan Romero', retener:'50.000' , fchRecoger:'23-07-2020'},
-      {codigo: 'OXIMED-145',cliente:'Jonathan Romero', retener:'50.000' , fchRecoger:'23-07-2020'},
-      {codigo: 'OXIMED-12345',cliente:'Jonathan Romero', retener:'50.000' , fchRecoger:'23-07-2020'},
-    ];
-    this.listado=this.listadoTodos;
-    this.listadoFilter=this.listadoTodos;
+     this.BaseService.postJson('ServiciosEquipo','proximasPorRecoger').subscribe(res=>{
+       if (res.RESPUESTA="EXITO") {
+        if (res.DATOS) {
+          this.listadoTodos=res.DATOS;
+          this.listado=this.listadoTodos;
+          this.listadoFilter=this.listadoTodos;
+          console.log(this.listadoTodos);
+          
+        }else{
+          this.Sweetalert.notificacion("info","No se encontraron servicios.");
+        }
+       }else{
+         this.Sweetalert.modal("error",res.mensaje);
+       }
+      
+     });
+    
   }
 
   getListadoEntregar(){
     /* alert('cargar recoger'); */
   }
 
-  doRefresh(event) {
-    console.log('Begin async operation');
-
+  doRefresh(event)  {
+    this.getListadoRecoger();
     setTimeout(() => {
-      console.log('Async operation has ended');
       event.target.complete();
-    }, 2000);
+    }, 1000);
   }
 
   ChangeSearchbar(value){
@@ -82,7 +89,7 @@ export class ListadoOxigemPage implements OnInit {
     console.log(val);
      if (val && val.trim() !== '') {
       this.listado = this.listadoFilter.filter((item) => {
-          return (item.codigo.toString().toLowerCase().indexOf(val.toString().toLowerCase()) > -1);
+          return (item.servicioCodigo.toString().toLowerCase().indexOf(val.toString().toLowerCase()) > -1);
       })
     } else{
       this.listado=this.listadoTodos;

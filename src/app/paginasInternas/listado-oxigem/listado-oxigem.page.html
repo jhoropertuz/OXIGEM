@@ -31,15 +31,15 @@
             <ion-icon name="calendar-outline" style="background: #ed576b" ></ion-icon> 
           </ion-col>  -->
           <ion-col size="9">
-            <h4>  <strong>{{item.codigo}}</strong> </h4>
-            <p> Cliente : {{item.cliente}} <br> Retener : {{item.retener}} <br> {{item.fchRecoger}} </p>
+            <h4>  <strong>{{item.servicioCodigo}}</strong> </h4>
+            <p> Cliente : {{item.personaRazonSocial}} <br> Retener : 70000 <br> Recogida : {{item.reciboFechaRecogida}} </p>
             <ion-buttons>
               <ion-button fill="clear" size="small" disabled (click)="irRuta('detalles-usuario/'+7)"><ion-icon name="person-outline" class="ion-icon-b"></ion-icon></ion-button>
               <ion-button fill="clear" size="small" disabled (click)="irRuta('recoger-oxigem/21')"><ion-icon name="map-outline" class="ion-icon-b"></ion-icon></ion-button>
             </ion-buttons>
           </ion-col>
           <ion-col class="text-right" size="3" >
-            <ion-button fill="clear" size="large" (click)="irRuta('recoger-oxigem/21')" ><ion-icon name="chevron-forward" slot="end" class="ion-icon-a"></ion-icon></ion-button>
+            <ion-button fill="clear" size="large" (click)="irRuta('recoger-oxigem/'+item.reciboId)" ><ion-icon name="chevron-forward" slot="end" class="ion-icon-a"></ion-icon></ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>

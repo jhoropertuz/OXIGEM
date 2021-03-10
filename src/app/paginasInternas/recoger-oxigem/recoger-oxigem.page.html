@@ -1,6 +1,6 @@
 <ion-header class="ion-no-border"  >
   <ion-toolbar>
-    <ion-title>Recoger {{codigo}}</ion-title>
+    <ion-title>Recoger Equipo</ion-title>
     <ion-buttons slot="start">
       <ion-back-button slot="start" icon="chevron-back" defaultHref="listado-oxigem/recoger"></ion-back-button>
     </ion-buttons>
@@ -16,15 +16,21 @@
 </ion-header>
 <ion-content [fullscreen]="true">
   <ion-grid>
+    <ion-row >
+      <ion-col size="12" *ngIf="Servicio" class="text-center">
+       <h3>{{Servicio.personaRazonSocial}}</h3>
+        <label> {{ Servicio.reciboNumero}}</label>
+      </ion-col>
+    </ion-row>
     <ion-row>
       <ion-col size="12">
         <p>Firma del cliente</p>
         <app-firma (firmaBase64Event)="firmaBase64Event($event)"></app-firma>
       </ion-col>
 
-      <ion-col size="12">
+      <!-- <ion-col size="12">
         <img src="{{firmaBase64}}" />
-      </ion-col>
+      </ion-col> -->
     </ion-row>
     <ion-row>
       <ion-col size="12">

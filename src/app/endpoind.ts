@@ -1,4 +1,4 @@
 export const Endpoind={
-  API_BASE:"https://api.sicam32.net/"
+  API_BASE:"http://localhost/OXIMED/API_PHP/api.php"
 }
 

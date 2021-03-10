@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BaseService } from '../service/base.service';
+import { SweetalertService } from '../service/sweetalert.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +12,7 @@ import { Router } from '@angular/router';
 export class LoginPage implements OnInit {
  validations_form: FormGroup;
  esperar=true;
-constructor(public formBuilder: FormBuilder, private router: Router) { }
+constructor(public formBuilder: FormBuilder, private router: Router, public BaseService:BaseService,public Sweetalert:SweetalertService) { }
    
   ngOnInit() {
     this.validations_form = this.formBuilder.group({
@@ -33,7 +35,21 @@ constructor(public formBuilder: FormBuilder, private router: Router) { }
   };
 
   onSubmitLogin(values){
-    this.router.navigateByUrl("listado-oxigem/recoger"); 
+    console.log(values);
+   
+    this.BaseService.postJson('Usuario','validarPorIdentificacion',{identificacion:values.identificacion}).subscribe(res=>{
+      console.log(res);
+      if(res.RESPUESTA=='EXITO'){
+        this.Sweetalert.notificacion('success',res.MENSAJE);
+        this.router.navigateByUrl("listado-oxigem/recoger");
+      }else{
+        let tipoModal=(res.RESPUESTA=='INFO')?'info':'error';
+        this.Sweetalert.modal(tipoModal,res.MENSAJE);
+      }
+      
+    });
+    
+    
   }
 
 
