@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
+import { AuthService } from '../service/auth.service';
 import { BaseService } from '../service/base.service';
 import { SweetalertService } from '../service/sweetalert.service';
 
@@ -12,9 +14,10 @@ import { SweetalertService } from '../service/sweetalert.service';
 export class LoginPage implements OnInit {
  validations_form: FormGroup;
  esperar=true;
-constructor(public formBuilder: FormBuilder, private router: Router, public BaseService:BaseService,public Sweetalert:SweetalertService) { }
+constructor(public formBuilder: FormBuilder, private router: Router, public BaseService:BaseService,public Sweetalert:SweetalertService, private MenuController:MenuController, public AuthService:AuthService) { }
    
   ngOnInit() {
+    this.MenuController.enable(false, 'menu');
     this.validations_form = this.formBuilder.group({
       identificacion: new FormControl('', Validators.compose([
         Validators.required
@@ -40,6 +43,7 @@ constructor(public formBuilder: FormBuilder, private router: Router, public Base
     this.BaseService.postJson('Usuario','validarPorIdentificacion',{identificacion:values.identificacion}).subscribe(res=>{
       console.log(res);
       if(res.RESPUESTA=='EXITO'){
+        this.AuthService.DatosUsuario(res.DATOS);
         this.Sweetalert.notificacion('success',res.MENSAJE);
         this.router.navigateByUrl("listado-oxigem/recoger");
       }else{

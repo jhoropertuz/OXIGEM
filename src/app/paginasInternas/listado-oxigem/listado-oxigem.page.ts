@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 import { BaseService } from '../../service/base.service';
 import { SweetalertService } from '../../service/sweetalert.service';
 @Component({
@@ -15,14 +16,17 @@ export class ListadoOxigemPage implements OnInit {
   listado=[];
   listadoFilter=[];
   listadoTodos=[];
-  constructor(public Router:Router,private ActivatedRoute: ActivatedRoute, public BaseService:BaseService,public Sweetalert:SweetalertService) { }
+  constructor(public Router:Router,private ActivatedRoute: ActivatedRoute, public BaseService:BaseService,public Sweetalert:SweetalertService,private MenuController:MenuController) { }
 
   ngOnInit() {
+    this.MenuController.enable(true, 'menu');
     this.listadoTipo=this.ActivatedRoute.snapshot.params.tipo;
     if(this.listadoTipo=='recoger'){
       this.titulo="Recoger"
       this.getListadoRecoger();
     }
+
+
   }
  
   irRuta(ruta){
